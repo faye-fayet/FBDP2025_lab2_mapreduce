@@ -8,6 +8,10 @@
 
 ------
 
+[TOC]
+
+
+
 ## 一、实验目的
 
 1. 掌握MapReduce编程模型的基本原理
@@ -166,53 +170,19 @@ protected void reduce(Text key, Iterable<Text> values, Context context) {
 
 ```
 商家ID    负样本数    普通消费数    正样本数
-1	0	12	0
-100	1	1	0
-1000	0	5	0
-1001	7	20	14
-1002	5	8	0
-1003	0	3	0
-1004	82	281	1
-1005	30	19	1
-1007	3	22	0
-1008	0	11	0
-1009	0	1	0
-101	0	4	0
-1010	3	10	2
-1011	63	59	6
-1013	29	64	5
-1015	19	16	1
-1016	10	5	1
-1017	8	9	0
-1018	4	6	5
-1019	0	4	0
 ```
+
+![image-20251113141253533](C:\Users\faye\AppData\Roaming\Typora\typora-user-images\image-20251113141253533.png)
 
 #### 线上数据结果（部分）
 
 ```
 商家ID    负样本数    普通消费数    正样本数
-10001	118	53	11
-10002	0	6	0
-10003	0	1	0
-10004	0	3	0
-10005	0	3	0
-10006	95	2	2
-10007	0	172	0
-10008	0	36	0
-10009	0	12	0
-10010	0	1	0
-10011	0	4	0
-10012	13	2	1
-10014	31	14	0
-10100	0	4	0
-10102	5	2	2
-10103	0	28	0
-10104	0	4	0
-10105	0	5	0
-10106	0	19	0
-10107	4	9	0
 ```
+
+![image-20251113141319495](C:\Users\faye\AppData\Roaming\Typora\typora-user-images\image-20251113141319495.png)
+
+
 
 ### 3.5 可能的改进
 
@@ -322,42 +292,11 @@ protected void reduce(Text key, Iterable<Text> values, Context context) {
 
 ```
 商家ID    距离分布
-1	Distance=0:2
-100	Distance=1:1
-1000	Distance=0:1
-1001	Distance=0:4
-1001	Distance=10:2
-1001	Distance=3:1
-1001	Distance=5:1
-1001	Distance=7:1
-1001	Distance=null:2
-1002	Distance=0:3
-1003	Distance=0:1
-1003	Distance=1:1
-1004	Distance=0:30
-1004	Distance=1:5
-1004	Distance=10:1
-1004	Distance=2:2
-1004	Distance=5:2
-1004	Distance=7:2
-1004	Distance=null:3
-1005	Distance=0:9
-1005	Distance=1:4
-1005	Distance=10:3
-1005	Distance=2:3
-1005	Distance=3:1
-1005	Distance=4:1
-1005	Distance=5:1
-1005	Distance=null:9
-1007	Distance=0:4
-1007	Distance=1:1
-1007	Distance=10:5
-1007	Distance=3:4
-1007	Distance=4:2
-1007	Distance=5:1
-1007	Distance=8:1
-1007	Distance=9:1
 ```
+
+![image-20251113142046015](C:\Users\faye\AppData\Roaming\Typora\typora-user-images\image-20251113142046015.png)
+
+
 
 ### 4.5 可能的改进
 
@@ -535,16 +474,9 @@ protected void map(LongWritable key, Text value, Context context) {
 
 ```
 优惠券ID    平均间隔天数
-7751	11.22
-111	11.24
-9776	12.30
-10323	4.96
-5686	4.97
-12034	8.54
-11539	8.65
-4773	8.79
-2418	9.18
 ```
+
+![image-20251113142115147](C:\Users\faye\AppData\Roaming\Typora\typora-user-images\image-20251113142115147.png)
 
 ### 5.5 可能的改进
 
@@ -670,12 +602,9 @@ private String categorizeRate(double rate) {
 
 ```
 折扣类别              统计结果
-0.0-0.5_高折扣	领取:59, 使用:3, 使用率:5.08%
-0.5-0.7_中高折扣	领取:16100, 使用:1995, 使用率:12.39%
-0.7-0.8_中等折扣	领取:54275, 使用:7434, 使用率:13.70%
-0.8-0.9_中低折扣	领取:3867, 使用:800, 使用率:20.69%
-0.9-1.0_低折扣	领取:58292, 使用:9174, 使用率:15.74%
 ```
+
+![image-20251113142139817](C:\Users\faye\AppData\Roaming\Typora\typora-user-images\image-20251113142139817.png)
 
 #### 结果分析
 
@@ -770,9 +699,9 @@ protected void map(LongWritable key, Text value, Context context) {
 
 ```
 领取时间    统计结果
-周末	领取:211411, 使用:13437, 使用率:6.36%
-工作日	领取:418413, 使用:31529, 使用率:7.54%
 ```
+
+![image-20251113142243458](C:\Users\faye\AppData\Roaming\Typora\typora-user-images\image-20251113142243458.png)
 
 #### 结果分析
 
@@ -945,12 +874,9 @@ protected void reduce(Text key, Iterable<Text> values, Context context) {
 
 ```
 商家活跃度分类                统计结果
-中低活跃商家(50-99券)	商家数:262, 总发券:17872, 总使用:2959, 使用率:16.56%, 平均发券:68.2
-中等活跃商家(100-499券)	商家数:188, 总发券:38831, 总使用:5480, 使用率:14.11%, 平均发券:206.5
-中高活跃商家(500-999券)	商家数:33, 总发券:24378, 总使用:3567, 使用率:14.63%, 平均发券:738.7
-低活跃商家(<50券)	商家数:4791, 总发券:45428, 总使用:7944, 使用率:17.49%, 平均发券:9.5
-高活跃商家(>=1000券)	商家数:73, 总发券:503315, 总使用:25016, 使用率:4.97%, 平均发券:6894.7
 ```
+
+![image-20251113142224676](C:\Users\faye\AppData\Roaming\Typora\typora-user-images\image-20251113142224676.png)
 
 **结果分析**
 
@@ -1005,7 +931,7 @@ protected void reduce(Text key, Iterable<Text> values, Context context) {
 
 ------
 
-### 6.5 任务四总体改进建议
+### 6.5 任务四可能的改进之处
 
 1. **考虑多因素交叉分析**：
    - 分析折扣率+领取时间的组合效果
